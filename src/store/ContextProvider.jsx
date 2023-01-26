@@ -1,13 +1,16 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const AppContext = createContext({
+export const BookContext = createContext({
   items: [],
   createItem: (item) => {},
   getItem: (id) => {},
   updateItem: (item) => {},
 });
 
-export default function Store({ children }) {
+
+
+export default function ContextProvider({ children }) {
+
   const [items, setItems] = useState([]);
 
   function createItem(item) {
@@ -35,7 +38,7 @@ export default function Store({ children }) {
   }
 
   return (
-    <AppContext.Provider
+    <BookContext.Provider
       value={{
         items,
         createItem,
@@ -44,10 +47,10 @@ export default function Store({ children }) {
       }}
     >
       {children}
-    </AppContext.Provider>
+    </BookContext.Provider>
   );
 }
 
-export function useAppContext() {
-  return useContext(AppContext);
+export function useBookContext() {
+  return useContext(BookContext);
 }

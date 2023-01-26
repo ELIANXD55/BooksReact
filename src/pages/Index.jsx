@@ -1,18 +1,22 @@
-import useAppContext from "../store/store"
+import { useBookContext } from "../store/ContextProvider"
 import { Link } from "react-router-dom"
 export const Index = () => {
-    
-    const store = useAppContext()
-    
-    return (
-        <div>
-            {store.items.map((item) => (<div>
-                {item.title}
-            </div>))}
-            {console.log(store.items)}
-        </div>
-    )
-}
+
+const store = useBookContext()
+   
+return (
+    <div>
+        {store.items.map((item) => (<div>
+            {item.title}
+        </div>))}
+        
+    </div>
+)
+
+
+    }
+
+
 
 
 export default Index
