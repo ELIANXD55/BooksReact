@@ -1,16 +1,21 @@
+import { Book } from "../components/book"
+import { Layout } from "../components/layout"
 import { useBookContext } from "../store/ContextProvider"
-import { Link } from "react-router-dom"
+
+
+
+
 export const Index = () => {
 
 const store = useBookContext()
-   
+
+
 return (
-    <div>
-        {store.items.map((item) => (<div>
-            {item.title}
-        </div>))}
-        
-    </div>
+    <Layout >
+        {store.items.map((item) => (
+            <Book key={item.id} item={item}/>
+        ))}
+    </Layout>
 )
 
 

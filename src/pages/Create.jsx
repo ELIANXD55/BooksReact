@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useBookContext } from "../store/ContextProvider";
+import { Layout } from "../components/layout";
 
 export const Create = () => {
   const [title, setTitle] = useState("");
@@ -65,10 +66,7 @@ const handleOnChangeFile = (e) => {
 }
 
   return (
-    <div>
-      <Link to="/">
-      Home
-      </Link>
+    <Layout>
       <form onSubmit={handlesumit}>
         <div>
           <div>Title</div>
@@ -133,7 +131,7 @@ const handleOnChangeFile = (e) => {
         </div>
         <input type="submit" value="Register Book" />
       </form>
-    </div>
+    </Layout>
   );
 };
 
